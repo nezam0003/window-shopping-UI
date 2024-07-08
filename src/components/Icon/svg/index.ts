@@ -1,0 +1,9 @@
+export { default as LocationIcon } from "./Location";
+export { default as EnvelopeIcon } from "./Envelope";
+export { default as PhoneXMarkIcon } from "./PhoneXMarkIcon";
+export { default as MenuIcon } from "./MenuIcon";
+export { default as XIcon } from "./XIcon";
+export { default as MenuBarTwoIcon } from "./MenuBarTwoIcon";
+export { default as MenuBarThreeCenterLetIcon } from "./MenuBarThreeCenterLetIcon";
+export { default as ChevronDownIcon } from "./ChevronDownIcon";
+export { default as ChevronLeftIcon } from "./ChevronLeftIcon";
