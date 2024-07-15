@@ -2,35 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+.custom-carousel {
+  .slick-prev {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    z-index: 10;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  .slick-next {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    z-index: 10;
+  }
+
+  .slick-prev,
+  .slick-next {
+    font-size: 0;
+    line-height: 0;
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: #444;
+  }
+
+  .slick-prev:hover,
+  .slick-prev:focus,
+  .slick-next:hover,
+  .slick-next:focus {
+    color: transparent;
+    outline: none;
+    background: #333;
   }
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */
-
-/* Custom Class */
-
-/* .menu-link-item {
-  @apply cursor-pointer hover: text-blue-600 text-gray-900;
-} */

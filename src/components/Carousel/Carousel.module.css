@@ -1,0 +1,18 @@
+/* Carousel.module.css */
+.slider {
+    width: 100%;
+}
+
+.slide {
+    position: relative;
+    width: 100vw;
+    /* Full width of the viewport */
+    height: 100vh;
+    /* Adjust height as needed, e.g., full height minus header/footer */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
