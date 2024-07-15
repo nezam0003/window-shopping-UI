@@ -15,14 +15,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="h-full">
-      <body className={`flex flex-col min-h-screen ${inter.className}`}>
+      <body className={`min-h-screen ${inter.className}`}>
         <TopNavbar />
         <Header />
-        <div className="flex flex-1 overflow-hidden">
+        <div className="">
           {/* <Sidebar /> */}
-          <main className="flex-1 relative overflow-y-auto focus:outline-none bg-white">
+          <main className="">
             {/* Main content */}
-            <div className="conainer mx-auto p-4">{children}</div>
+            <div className="">{children}</div>
           </main>
         </div>
         <Footer />
