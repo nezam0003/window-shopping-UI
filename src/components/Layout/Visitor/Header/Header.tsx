@@ -4,19 +4,11 @@ import Link from "next/link";
 import { MenuIcon, XIcon, ChevronDownIcon, ChevronLeftIcon } from "@/components/Icon/svg";
 import { useLang } from "@/hooks/useLang";
 import { CONSTANT_COMMON } from "@/constants";
+import { useNavbarContext } from "@/context/Navbar/NavbarContext";
 
 const Navbar = () => {
    const { t } = useLang();
-   const [isOpen, setIsOpen] = useState<boolean>(false);
-   const [openSubMenus, setOpenSubMenus] = useState<string[]>([]);
-
-   const handleSubMenuToggle = (menu: string) => {
-      setOpenSubMenus((prevOpenSubMenus) =>
-         prevOpenSubMenus.includes(menu)
-            ? prevOpenSubMenus.filter((subMenu) => subMenu !== menu)
-            : [...prevOpenSubMenus, menu]
-      );
-   };
+   const { isOpen, setIsOpen, openSubMenus, handleSubMenuToggle, } = useNavbarContext()
 
    return (
       <nav className="bg-gray-100 shadow-lg">
