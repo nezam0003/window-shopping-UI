@@ -1,14 +1,22 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { MenuIcon, XIcon, ChevronDownIcon, ChevronLeftIcon } from "@/components/Icon/svg";
 import { useLang } from "@/hooks/useLang";
 import { CONSTANT_COMMON } from "@/constants";
 import { useNavbarContext } from "@/context/Navbar/NavbarContext";
+import useResponsiveMediaQuery from "@/lib/useResponsiveMediaQuery";
 
 const Navbar = () => {
    const { t } = useLang();
    const { isOpen, setIsOpen, openSubMenus, handleSubMenuToggle, } = useNavbarContext()
+   const { isMedium } = useResponsiveMediaQuery()
+
+   useEffect(() => {
+      if (isMedium && isOpen) {
+         setIsOpen(false);
+      }
+   }, [isMedium, isOpen, setIsOpen]);
 
    return (
       <nav className="bg-gray-100 shadow-lg">
