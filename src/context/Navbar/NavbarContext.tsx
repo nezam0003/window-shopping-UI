@@ -33,7 +33,7 @@ const NavbarProvider = ({ children }: { children: React.ReactNode }) => {
         );
     };
 
-    const contextValue = { isOpen, openSubMenus, setIsOpen, setOpenSubMenus, handleSubMenuToggle }
+    const contextValue: NavbarContextState = { isOpen, openSubMenus, setIsOpen, setOpenSubMenus, handleSubMenuToggle }
 
     return (
         <NavbarContext.Provider value={contextValue}>
