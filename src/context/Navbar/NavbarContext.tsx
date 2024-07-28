@@ -1,12 +1,25 @@
 "use client"
 import React, { createContext, useState, useContext } from 'react'
 
+interface NavbarContextState {
+    isOpen: boolean;
+    openSubMenus: string[];
+    setIsOpen: (isOpen: boolean) => void;
+    setOpenSubMenus: (openSubMenus: string[]) => void;
+    handleSubMenuToggle: (menu: string) => void;
+}
+
 const initialState = {
     isOpen: false,
     openSubMenus: []
 }
 
-export const NavbarContext = createContext<any>(initialState)
+export const NavbarContext = createContext<NavbarContextState>({
+    ...initialState,
+    setIsOpen: () => { },
+    setOpenSubMenus: () => { },
+    handleSubMenuToggle: () => { }
+})
 
 const NavbarProvider = ({ children }: { children: React.ReactNode }) => {
     const [isOpen, setIsOpen] = useState<boolean>(initialState.isOpen);
