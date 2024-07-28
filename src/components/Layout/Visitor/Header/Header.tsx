@@ -5,7 +5,7 @@ import { MenuIcon, XIcon, ChevronDownIcon, ChevronLeftIcon } from "@/components/
 import { useLang } from "@/hooks/useLang";
 import { CONSTANT_COMMON } from "@/constants";
 import { useNavbarContext } from "@/context/Navbar/NavbarContext";
-import useResponsiveMediaQuery from "@/lib/useResponsiveMediaQuery";
+import useResponsiveMediaQuery from "@/hooks/useResponsiveMediaQuery";
 
 const Navbar = () => {
    const { t } = useLang();
