@@ -6,11 +6,6 @@ const initialState = {
     openSubMenus: []
 }
 
-interface NavbarContext {
-    isOpen: false,
-    openSubMenus: []
-}
-
 export const NavbarContext = createContext<any>(initialState)
 
 const NavbarProvider = ({ children }: { children: React.ReactNode }) => {
