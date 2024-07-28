@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { MenuIcon, XIcon, ChevronDownIcon, ChevronLeftIcon } from "@/components/Icon/svg";
 import { useLang } from "@/hooks/useLang";
