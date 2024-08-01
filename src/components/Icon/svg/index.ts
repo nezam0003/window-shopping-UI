@@ -7,3 +7,6 @@ export { default as MenuBarTwoIcon } from "./MenuBarTwoIcon";
 export { default as MenuBarThreeCenterLetIcon } from "./MenuBarThreeCenterLetIcon";
 export { default as ChevronDownIcon } from "./ChevronDownIcon";
 export { default as ChevronLeftIcon } from "./ChevronLeftIcon";
+export { default as DocumentCheck } from "./DocumentCheck";
+export { default as ShoppingCart } from "./ShoppingCart";
+export { default as SingleUserCircle } from "./SingleUserCircle";
