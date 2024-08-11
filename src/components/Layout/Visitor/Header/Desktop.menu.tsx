@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React, { FC } from 'react'
-import { MenuIcon, SingleUserCircle, ShoppingCart } from "@/components/Icon/svg";
+import { MenuIcon, SingleUserCircle, ShoppingCart, ArrowRightEndtIcon } from "@/components/Icon/svg";
 import { useNavbarContext } from '@/context/Navbar/NavbarContext';
 import { useLang } from '@/hooks/useLang';
 
@@ -55,7 +55,18 @@ const DesktopMenu: FC<any> = (props) => {
                         </Link>
                     </div>
                     <div className="flex items-center gap-3">
-                        <div><SingleUserCircle /></div>
+                        <div>
+                            <Link href="/auth/login" className='flex items-center hover:text-blue-600'>
+                                <ArrowRightEndtIcon />
+                                {t("Login")}
+                            </Link>
+                        </div>
+                        <div>
+                            <Link href="/auth/register" className='flex items-center hover:text-blue-600'>
+                                <SingleUserCircle />
+                                {t("Sign up")}
+                            </Link>
+                        </div>
                         <div><ShoppingCart /></div>
                     </div>
                 </div>

@@ -16,7 +16,7 @@ const Navbar = () => {
    }, [isMedium, isOpen, setIsOpen]);
 
    return (
-      <nav className="bg-gray-100 shadow-lg">
+      <nav className="bg-white shadow-lg">
          <DesktopMenu />
          <MobileMenu />
       </nav>
