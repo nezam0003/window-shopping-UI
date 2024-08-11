@@ -10,3 +10,4 @@ export { default as ChevronLeftIcon } from "./ChevronLeftIcon";
 export { default as DocumentCheck } from "./DocumentCheck";
 export { default as ShoppingCart } from "./ShoppingCart";
 export { default as SingleUserCircle } from "./SingleUserCircle";
+export { default as ArrowRightEndtIcon } from "./ArrowRightEndIcon";
