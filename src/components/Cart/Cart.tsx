@@ -2,6 +2,7 @@
 import React, { FC, useState } from 'react'
 import DrawerCart from './DrawerCart'
 import { ShoppingCart } from "@/components/Icon/svg";
+import { Badge } from 'antd';
 
 const initialState = {
     isOpenDrawer: false
@@ -34,10 +35,10 @@ const Cart: FC<any> = props => {
 
     return (
         <>
-            <div className='cursor-pointer hover:text-red-600' >
-                <div onClick={() => handleCallbackFunc(null, 'show_cart')}>
+            <div className='cursor-pointer hover:text-red-600' onClick={() => handleCallbackFunc(null, 'show_cart')} >
+                <Badge count={0} offset={[3, 0]} showZero className='mt-1'>
                     <ShoppingCart />
-                </div>
+                </Badge>
             </div>
             <DrawerCart
                 isOpenDrawer={isOpenDrawer}
