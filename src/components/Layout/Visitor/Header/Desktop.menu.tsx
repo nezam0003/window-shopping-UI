@@ -1,8 +1,10 @@
+"use client"
 import Link from 'next/link'
 import React, { FC } from 'react'
-import { MenuIcon, SingleUserCircle, ShoppingCart, ArrowRightEndtIcon } from "@/components/Icon/svg";
+import { MenuIcon, SingleUserCircle, ArrowRightEndtIcon } from "@/components/Icon/svg";
 import { useNavbarContext } from '@/context/Navbar/NavbarContext';
 import { useLang } from '@/hooks/useLang';
+import Cart from '@/components/Cart/Cart';
 
 const DesktopMenu: FC<any> = (props) => {
     const { t } = useLang();
@@ -67,7 +69,7 @@ const DesktopMenu: FC<any> = (props) => {
                                 {t("Sign up")}
                             </Link>
                         </div>
-                        <div><ShoppingCart /></div>
+                        <Cart />
                     </div>
                 </div>
             </div>
