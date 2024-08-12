@@ -1,12 +1,42 @@
+"use client"
 import Link from 'next/link'
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { MenuIcon, SingleUserCircle, ShoppingCart, ArrowRightEndtIcon } from "@/components/Icon/svg";
 import { useNavbarContext } from '@/context/Navbar/NavbarContext';
 import { useLang } from '@/hooks/useLang';
+import DrawerCart from '@/components/Cart/DrawerCart';
+
+const initialState = {
+    isOpenDrawer: false
+}
 
 const DesktopMenu: FC<any> = (props) => {
     const { t } = useLang();
     const { isOpen, setIsOpen } = useNavbarContext()
+
+    const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(initialState.isOpenDrawer)
+
+    const handleActions = (action: string, recordId?: any) => {
+        if (action === 'show_cart') {
+            setIsOpenDrawer(true);
+        }
+    };
+
+    const handleHideCartDrawer = () => {
+        setIsOpenDrawer(false);
+    };
+
+    const handleCallbackFunc = (event: any, action: string, recordId?: any, data?: any) => {
+        if (event === null || event === undefined || event === '') {
+            event = event ? event : 'singleAction';
+        }
+        if (event == 'singleAction' && action == 'show_cart') {
+            handleActions("show_cart")
+        }
+        else if (event == 'singleAction' && action == 'hide_drawer') {
+            handleHideCartDrawer()
+        }
+    }
 
     return (
         <>
@@ -67,7 +97,15 @@ const DesktopMenu: FC<any> = (props) => {
                                 {t("Sign up")}
                             </Link>
                         </div>
-                        <div><ShoppingCart /></div>
+                        <div className='cursor-pointer hover:text-red-600' >
+                            <div onClick={() => handleCallbackFunc(null, 'show_cart')}>
+                                <ShoppingCart />
+                            </div>
+                        </div>
+                        <DrawerCart
+                            isOpenDrawer={isOpenDrawer}
+                            handleCallbackFunc={handleCallbackFunc}
+                        />
                     </div>
                 </div>
             </div>

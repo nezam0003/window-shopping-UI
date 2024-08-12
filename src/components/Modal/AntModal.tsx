@@ -13,7 +13,7 @@ interface ModalProps {
     isOpenModal: boolean,
     modalWidth?: string,
     component?: any,
-    handleCallbackFunc: (event: any, action: string, recordId?: number, data?: any) => {},
+    handleCallbackFunc: (event: any, action: string, recordId?: number, data?: any) => void,
     [key: string]: any
 }
 
