@@ -1,5 +1,5 @@
 "use client"
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import AntDrawer from '../Drawer/AntDrawer'
 import DrawerCartContent from './DrawerCartContent'
 
@@ -9,16 +9,35 @@ interface IProps {
     [key: string]: any
 }
 
+const initialState = {
+    quantity: 1
+}
+
 const DrawerCart: FC<IProps> = props => {
+
+    const [quantity, setQuantity] = useState<number>(initialState.quantity);
+
+    const increaseQuantity = () => {
+        setQuantity(prevQuantity => prevQuantity + 1);
+    };
+
+    const decreaseQuantity = () => {
+        if (quantity >= 1) {
+            setQuantity(prevQuantity => prevQuantity - 1);
+        }
+    };
 
     return (
         <>
             <AntDrawer
-                drawerWidth="520px"
+                drawerWidth="620px"
                 drawerTitle="Your Cart"
                 isOpenDrawer={props.isOpenDrawer}
                 mask={true}
                 component={DrawerCartContent}
+                quantity={quantity}
+                increaseQuantity={increaseQuantity}
+                decreaseQuantity={decreaseQuantity}
                 handleCallbackFunc={props.handleCallbackFunc}
             />
         </>
