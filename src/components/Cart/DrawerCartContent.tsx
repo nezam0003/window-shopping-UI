@@ -1,24 +1,22 @@
 import { Button } from 'antd'
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { CloseOutlined } from '@ant-design/icons';
+import { products } from './data'
+import { Product } from './type';
 
-const DrawerCartContent = () => {
-    const [quantity, setQuantity] = useState(1);
+interface CartItemProps {
+    product: Product
+}
+interface QuantitySelectorProps {
+    quantity: number
+}
 
-    const increaseQuantity = () => {
-        setQuantity(quantity + 1);
-    };
+const DrawerCartContent: FC<any> = (props) => {
 
-    const decreaseQuantity = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1);
-        }
-    };
-
-    const QuantitySelector = () => (
+    const QuantitySelector: FC<QuantitySelectorProps> = ({ quantity }) => (
         <div className="inline-flex items-center border rounded-md overflow-hidden">
             <button
-                onClick={decreaseQuantity}
+                onClick={props.decreaseQuantity}
                 className="w-10 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 transition-colors duration-200"
             >
                 -
@@ -27,7 +25,7 @@ const DrawerCartContent = () => {
                 {quantity}
             </span>
             <button
-                onClick={increaseQuantity}
+                onClick={props.increaseQuantity}
                 className="w-10 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 transition-colors duration-200"
             >
                 +
@@ -35,24 +33,36 @@ const DrawerCartContent = () => {
         </div>
     );
 
-    const CartItem = () => (
+    const CartItem: FC<CartItemProps> = ({ product }) => (
         <div className="flex items-center justify-between">
             <img
                 src="https://via.placeholder.com/100"
                 alt="Product Name"
                 className="w-20 h-20 object-cover rounded"
             />
-            <div className="ml-4 flex-1">
+            <div className="ml-2">
                 <h3 className="text-lg font-semibold text-gray-800">
-                    Product Name
+                    {product.product_name}
                 </h3>
-                <div className="flex items-center justify-between mt-2">
+                <div className="">
                     {/* Quantity Selector */}
-                    <QuantitySelector />
-                    <span className="text-lg font-semibold text-gray-800">$99.99</span>
+                    <QuantitySelector quantity={product.quantity} />
                 </div>
             </div>
-            <div className='mt-9 ml-4'>
+            <div className="">
+                <h3 className="text-lg font-semibold text-gray-800">
+                    Unit Price
+                </h3>
+                <span className="text-lg font-semibold text-gray-800">${product.unit_price}</span>
+            </div>
+            <div>
+                <h3 className="text-lg font-semibold text-gray-800">
+                    Total
+                </h3>
+                <span className="text-lg font-semibold text-gray-800">${product.total}</span>
+
+            </div>
+            <div className=''>
                 <Button
                     type="text"
                     icon={<CloseOutlined />}
@@ -66,15 +76,13 @@ const DrawerCartContent = () => {
         <>
             <div className="space-y-6">
                 {/* Cart Item */}
-                <CartItem />
-                <CartItem />
-                <CartItem />
+                {products?.map((product, index) => <CartItem product={product} key={index} />)}
                 {/* Add more Cart Items here as needed */}
             </div>
             <div className="mt-6 border-t pt-4">
                 <div className="flex justify-between text-lg font-semibold text-gray-800">
                     <span>Total:</span>
-                    <span>$99.99</span>
+                    <span>$100</span>
                 </div>
                 <Button type="primary" className="w-full mt-4">
                     Proceed to Checkout
