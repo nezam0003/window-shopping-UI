@@ -82,7 +82,7 @@ const DrawerCartContent: FC<any> = (props) => {
             <div className="mt-6 border-t pt-4">
                 <div className="flex justify-between text-lg font-semibold text-gray-800">
                     <span>Total:</span>
-                    <span>$99.99</span>
+                    <span>$100</span>
                 </div>
                 <Button type="primary" className="w-full mt-4">
                     Proceed to Checkout
